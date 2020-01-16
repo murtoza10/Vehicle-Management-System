@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="fullview" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.UserLogin">
+   <children>
+      <AnchorPane id="logbox" layoutX="287.0" layoutY="90.0" prefHeight="720.0" prefWidth="1350.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox layoutX="421.0" layoutY="243.0" prefHeight="25.0" prefWidth="242.0" spacing="25.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="550.0">
+               <children>
+                  <Label minWidth="-Infinity" text="Username">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField minWidth="-Infinity" prefHeight="25.0" prefWidth="154.0" />
+               </children>
+            </HBox>
+            <Button id="btlog" layoutX="613.0" layoutY="369.0" mnemonicParsing="false" text="Login" AnchorPane.leftAnchor="613.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <HBox layoutX="421.0" layoutY="285.0" prefHeight="30.0" prefWidth="242.0" spacing="30.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="550.0">
+               <children>
+                  <Label minWidth="-Infinity" text="Password">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField minWidth="-Infinity" prefHeight="25.0" prefWidth="154.0" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="H_RESIZE" />
+               </cursor>
+            </HBox>
+         </children>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </AnchorPane>
+   </children>
+</AnchorPane>

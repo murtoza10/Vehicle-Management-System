@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="edu.sust.db.OwnerDetails" table="owner_details" schema="" catalog="db_project">
+        <id name="ownerId" type="int" column="owner_id">
+            <generator class="identity" />
+        </id>
+
+        <property name="nationalId" column="national_id"/>
+        <property name="name" column="name"/>
+        <property name="dob" column="dob"/>
+        <property name="currAddrss" column="curr_addrss"/>
+        <property name="permAddrss" column="perm_addrss"/>
+        <set name="phones" cascade="all">
+            <key column="owner_id"/>
+            <one-to-many class="edu.sust.db.Phone"/>
+        </set>
+        <many-to-one name="user" column="user_id" unique="true"
+                     class="edu.sust.db.User" not-null="true" />
+
+    </class>
+    <class name="edu.sust.db.Phone" table="phone" schema="" catalog="db_project">
+        <id name="phone" column="phone_num"/>
+
+    </class>
+    <class name="edu.sust.db.User" table="user" schema="" catalog="db_project">
+        <id name="userId" type="int" column="user_id">
+            <generator class ="increment" />
+        </id>
+        <property name="username" column="username"/>
+        <property name="password" column="password"/>
+        <property name="rank" column="rank"/>
+
+
+    </class>
+    <class name="edu.sust.db.Vehicle" table="vehicle" schema="" catalog="db_project">
+        <id name="chasisNum" column="chasis_num"/>
+        <property name="engineNum" column="engine_num"/>
+        <property name="validTill" column="valid_till"/>
+        <!--<property name="registrationId" column="registration_id"/>-->
+        <!--<property name="buildId" column="build_id"/>-->
+        <property name="color" column="color"/>
+        <many-to-one name="owner" column="owner_id" unique="true"
+                     class="edu.sust.db.OwnerDetails" not-null="true"/>
+        <!--<many-to-one name="reg" column="registration_id" unique="true"-->
+                     <!--class="edu.sust.db.VehicleRegInfo" not-null="true"/>-->
+        <many-to-one name="build" column="build_id"
+                     class="edu.sust.db.VehicleBuild" not-null="true"/>
+
+    </class>
+    <class name="edu.sust.db.VehicleBuild" table="vehicle_build" schema="" catalog="db_project">
+            <id name="buildId" column="build_id">
+                <generator class ="increment" />
+            </id>
+        <property name="manufacturer" column="manufacturer"/>
+        <property name="engineType" column="engine_type"/>
+        <property name="fuelType" column="fuel_type"/>
+        <property name="wheelType" column="wheel_type"/>
+        <property name="model" column="model"/>
+        <property name="yearOfManufacture" column="year_of_manufacture"/>
+        <!--<many-to-one name="vehicle" column="chasis_num"-->
+                     <!--class="edu.sust.db.Vehicle" not-null="true"/>-->
+    </class>
+    <class name="edu.sust.db.VehicleRegInfo" table="vehicle_reg_info" schema="" catalog="db_project">
+        <id name="registrationId" column="registration_id">
+            <generator class ="increment" />
+        </id>
+        <property name="plateNum" column="plate_num"/>
+        <property name="dateOfReg" column="date_of_reg"/>
+        <property name="regFee" column="reg_fee"/>
+        <property name="regArea" column="reg_area"/>
+        <property name="vehicleType" column="vehicle_type"/>
+        <many-to-one name="vehicle" column="chasis_num" unique="true"
+                     class="edu.sust.db.Vehicle" not-null="true"/>
+    </class>
+    <class name="edu.sust.db.VehicleStatus" table="vehicle_status" schema="" catalog="db_project">
+        <id name="statusId" column="status_id">
+            <generator class ="increment" />
+        </id>
+        <property name="roadPermit" column="road_permit"/>
+        <property name="operationalStatus" column="operational_status"/>
+        <many-to-one name="reg" column="registration_id" unique="true"
+                     class="edu.sust.db.VehicleRegInfo" not-null="true"/>
+    </class>
+    <class name="edu.sust.db.VehicleTax" table="vehicle_tax" schema="" catalog="db_project">
+        <id name="recordNo" column="record_no">
+            <generator class ="increment" />
+        </id>
+        <property name="taxAmount" column="tax_amount"/>
+        <property name="dateOfPayment" column="date_of_payment"/>
+        <many-to-one name="reg" column="registration_id"
+                     class="edu.sust.db.VehicleRegInfo" not-null="true"/>
+    </class>
+</hibernate-mapping>

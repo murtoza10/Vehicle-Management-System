@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="755.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SearchOption">
+   <children>
+      <TextField fx:id="txtssearch" layoutX="781.0" layoutY="57.0" promptText="Search" />
+      <ChoiceBox fx:id="chcsoption" layoutX="957.0" layoutY="57.0" prefWidth="150.0" />
+      <Button layoutX="1136.0" layoutY="57.0" mnemonicParsing="false" onAction="#Search" text="Search">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <TableView fx:id="stable2" layoutX="225.0" layoutY="190.0" prefHeight="391.0" prefWidth="691.0">
+         <columns>
+            <TableColumn fx:id="sreg2" prefWidth="128.0" text="Registration Number" />
+            <TableColumn fx:id="smanufacturer2" prefWidth="105.0" text="Manufacturer" />
+            <TableColumn fx:id="smodel2" prefWidth="115.0" text="Model" />
+            <TableColumn fx:id="scolor2" prefWidth="102.0" text="Color" />
+            <TableColumn fx:id="svalidity2" prefWidth="104.0" text="Validity" />
+         </columns>
+      </TableView>
+      <Label layoutX="478.0" layoutY="120.0" prefHeight="38.0" prefWidth="170.0" text="Search Results">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="537.0" layoutY="631.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="83.0" onAction="#BackToUser" text="Back">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

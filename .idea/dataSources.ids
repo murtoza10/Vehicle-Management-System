@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="MySQL - @localhost" uuid="a3147fb7-fc03-4b3a-9dac-307a5d26338e">
+    <database-info product="MySQL" version="5.6.16" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.26 ( Revision: ${bzr.revision-id} )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="db_project"/>
+    <table name="owner_details" schema="" catalog="db_project" type="TABLE">
+      <column name="owner_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="national_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="dob" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="curr_addrss" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12"/>
+      <column name="perm_addrss" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="owner_id"/>
+      <index name="national_id" unique="true" columns="national_id"/>
+    </table>
+    <table name="phone" schema="" catalog="db_project" type="TABLE">
+      <column name="p_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="phone" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="owner_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="p_id"/>
+    </table>
+    <table name="user" schema="" catalog="db_project" type="TABLE">
+      <column name="u_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="password" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="rank" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="owner_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="u_id"/>
+    </table>
+    <table name="vehicle" schema="" catalog="db_project" type="TABLE">
+      <column name="engine_num" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="chasis_num" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="valid_till" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="registration_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="owner_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="build_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="color" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="chasis_num"/>
+      <index name="engine_num" unique="true" columns="engine_num"/>
+    </table>
+    <table name="vehicle_build" schema="" catalog="db_project" type="TABLE">
+      <column name="build_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="manufacturer" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="engine_type" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fuel_type" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="wheel_type" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="model" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="year_of_manufacture" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="build_id"/>
+    </table>
+    <table name="vehicle_reg_info" schema="" catalog="db_project" type="TABLE">
+      <column name="registration_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="plate_num" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date_of_reg" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="reg_fee" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="reg_area" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="vehicle_type" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="owner_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="build_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="registration_id"/>
+      <index name="plate_num" unique="true" columns="plate_num"/>
+    </table>
+    <table name="vehicle_status" schema="" catalog="db_project" type="TABLE">
+      <column name="status_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="road_permit" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="operational_status" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="registration_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="status_id"/>
+    </table>
+    <table name="vehicle_tax" schema="" catalog="db_project" type="TABLE">
+      <column name="record_no" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="tax_amount" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date_of_payment" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="registration_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="record_no"/>
+    </table>
+  </data-source>
+</component>
